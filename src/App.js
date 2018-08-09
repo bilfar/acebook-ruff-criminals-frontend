@@ -4,8 +4,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    // this.url = props.url;
-    this.state = { email: "", password: "" };
+    this.state = { email: '', password: ''};
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
