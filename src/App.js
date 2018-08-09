@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: 0, password: 0};
+    // this.url = props.url;
+    this.state = { email: "", password: "" };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -34,16 +34,16 @@ class App extends Component {
         "password": this.state.password
       }
 
-      fetch("https://....", {
+      return fetch("http://ruffbook.herokuapp.com", {
         method: "POST",
-        headers: headers,
-        body:  JSON.stringify(data)
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
       })
       .then(function(response){
         return response.json();
       })
       .then(function(data){
-        console.log(data)
+        return data
       });
     }
   }
