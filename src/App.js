@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: 0, password: 0};
+    this.state = { email: '', password: ''};
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -34,10 +34,10 @@ class App extends Component {
         "password": this.state.password
       }
 
-      fetch("https://....", {
+      fetch("http://localhost:3000/user/sign_in", {
         method: "POST",
-        headers: headers,
-        body:  JSON.stringify(data)
+        header: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
       })
       .then(function(response){
         return response.json();
